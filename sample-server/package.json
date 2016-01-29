@@ -1,0 +1,16 @@
+{
+  "name": "sample-server",
+  "version": "0.0.0",
+  "description": "",
+  "main": "sample-server.js",
+  "dependencies": {
+    "http-auth": "^2.2.8"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node test.js",
+    "start": "node sample-server.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

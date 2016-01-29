@@ -66,3 +66,25 @@ Licensed under the Apache License, Version 2.0 (the "License"); you may not use 
 http://www.apache.org/licenses/LICENSE-2.0
 
 Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+
+## Try it out...
+
+You can try this out with a local server and sample project as follows:
+
+```bash
+cd sample # go into sample cordova project
+cordova prepare #add platforms and plugins
+cordova run android #or whatever
+cd ../sample-server #or use a different terminal tab!
+npm install
+npm start # or node main.js <port # if you don't like 1337>
+```
+
+Then if you are on a live android device, go to chrome://inspect and add the following entry to port forwarding:
+1337 -> localhost:1337
+
+-press "Make XHR to link" on the test page
+-put in sample username and password.  (Which are written in the dialog box and the test server startup message.)
+
+
+

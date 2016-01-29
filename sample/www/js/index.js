@@ -17,7 +17,7 @@
  * under the License.
  */
 
-var SECURED_PAGE = 'https://sps2013.akvelon.net:8443';
+var SECURED_PAGE = 'http://localhost:1337';
 
 var app = {
     // Application Constructor
