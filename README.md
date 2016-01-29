@@ -72,6 +72,7 @@ Unless required by applicable law or agreed to in writing, software distributed 
 You can try this out with a local server and sample project as follows:
 
 ```bash
+cordova --version #make sure you have at least cordova 6, or the sample project might have circular import issues
 cd sample # go into sample cordova project
 cordova prepare #add platforms and plugins
 cordova run android #or whatever
