@@ -25,4 +25,3 @@
     <plugin name="com.msopentech.authdialog" spec=".." />
     <engine name="ios" spec="~4.0.1" />
 </widget>
-
