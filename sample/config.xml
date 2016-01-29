@@ -22,5 +22,6 @@
         <allow-intent href="itms-apps:*" />
     </platform>
     <engine name="android" spec="~5.1.0" />
+    <plugin name="com.msopentech.authdialog" spec=".." />
 </widget>
 
