@@ -87,5 +87,20 @@ Then if you are on a live android device, go to chrome://inspect and add the fol
 -press "Make XHR to link" on the test page
 -put in sample username and password.  (Which are written in the dialog box and the test server startup message.)
 
+### on ios
+
+```bash
+cordova --version #make sure you have at least cordova 6, or the sample project might have circular import issues
+cd sample # go into sample cordova project
+cordova prepare #add platforms and plugins
+cordova build ios
+open ./platforms/ios/Auth\ Dialog\ Sample.xcodeproj
+cd ../sample-server #or use a different terminal tab!
+npm install
+npm start # or node main.js <port # if you don't like 1337>
+#run in the simulator
+#the "Make XHR to link" button will not work until you press "Authenticate (ios only)"
+```
+
 
 
