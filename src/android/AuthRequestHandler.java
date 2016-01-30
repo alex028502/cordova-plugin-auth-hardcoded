@@ -1,5 +1,7 @@
 package com.msopentech.authDialog;
 
+import android.util.Log;
+
 import org.apache.cordova.*;
 
 public class AuthRequestHandler extends CordovaPlugin {
