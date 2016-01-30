@@ -1,31 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
- Copyright (c) Microsoft Open Technologies, Inc.  All Rights Reserved. 
+ Copyright (c) Microsoft Open Technologies, Inc.  All Rights Reserved.
  Licensed under the Apache License, Version 2.0.  See License.txt in the project root for license information.
 -->
-<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" 
-    id="com.msopentech.authdialog" version="0.1.0-dev">
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0" id="com.example.plugin.hardcodebasicauth" version="0.0.1">
 
-    <name>Authentication Dialog</name>
-    <description>Adds support for authentication dialogs into Apache Cordova</description>
+    <name>Hardcode Basic Auth</name>
+    <description>Adds support for authentication with single hard coded user into Apache Cordova</description>
 
     <license>Apache 2.0</license>
-    <keywords>microsoft, authentication, windows, ntlm</keywords>
-    <repo>https://github.com/msopentech/cordova-plugin-auth-dialog</repo>
-    <issue>https://github.com/msopentech/cordova-plugin-auth-dialog/issues</issue>
+    <keywords>basic http auth apache</keywords>
+    <repo>https://github.com/alex028502/cordova-plugin-auth-hardcoded</repo>
+    <issue>https://github.com/alex028502/cordova-plugin-auth-hardcoded/issues</issue>
+
+    <preference name="BASIC_AUTH_USERNAME" />
+    <preference name="BASIC_AUTH_PASSWORD" />
 
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
-            <feature name="AuthDialog"> 
+            <feature name="AuthDialog">
                 <param name="android-package" value="com.msopentech.authDialog.AuthRequestHandler"/>
                 <param name="onload" value="true" />
             </feature>
         </config-file>
+        <source-file src="src/basic-auth.xml" target-dir="res/values" />
+        <config-file target="res/values/basic-auth.xml" parent="/*">
+            <string name="basic_auth_username">$BASIC_AUTH_USERNAME</string>
+            <string name="basic_auth_password">$BASIC_AUTH_PASSWORD</string>
+        </config-file>
         <source-file src="src/android/AuthRequestHandler.java" target-dir="src/com/msopentech/authDialog" />
-        <source-file src="src/android/AuthenticationDialog.java" target-dir="src/com/msopentech/authDialog" />
-
-        <resource-file src="src/android/res/layout/http_authentication.xml" target="res/layout/http_authentication.xml" />
-        <resource-file src="src/android/res/values/authdialog-strings.xml" target="res/values/authdialog-strings.xml" />
     </platform>
 
     <platform name="ios">
@@ -42,42 +45,4 @@
             <clobbers target="window.authDialog" />
         </js-module>
     </platform>
-
-    <platform name="wp8">
-
-        <js-module name="AuthDialog" src="www/authDialog.js">
-            <runs />
-        </js-module>
-
-        <config-file target="Properties/WMAppManifest.xml" parent="/Deployment/App/Capabilities">
-            <Capability Name="ID_CAP_NETWORKING"/>
-        </config-file>
-
-        <config-file target="config.xml" parent="/*">
-            <feature name="AuthDialog">
-                <param name="wp-package" value="MSOpenTech.AuthDialog.AuthRequestHandler"/>
-                <param name="onload" value="true" /> 
-            </feature>
-        </config-file>
-
-        <source-file src="src/wp/AuthRequestHandler.cs" />
-        <source-file src="src/wp/HttpAuthRequestHandler.cs" />
-        <source-file src="src/wp/AuthenticationDialog.xaml" />
-        <source-file src="src/wp/AuthenticationDialog.xaml.cs" />
-    </platform>
-
-    <platform name="windows">
-        <js-module name="AuthDialog" src="www/authDialog.js">
-            <runs />
-        </js-module>
-
-        <config-file target="package.windows.appxmanifest" parent="/Package/Capabilities">
-            <Capability Name="privateNetworkClientServer" />
-        </config-file>
-
-        <config-file target="package.windows80.appxmanifest" parent="/Package/Capabilities">
-            <Capability Name="privateNetworkClientServer" />
-        </config-file>
-    </platform>
-
 </plugin>
